@@ -8,11 +8,13 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-let name = prompt('What is your name?');
+
+
 function sayHello(name) {
     return `Hello, ${name}!`;
 }
-alert (sayHello(name));
+console.log(sayHello("codeup"));
+
 
 /**
  * TODO:
@@ -21,6 +23,7 @@ alert (sayHello(name));
  *
  * console.log 'helloMessage' to check your work
  */
+
 let helloMessage = sayHello("Tig");
 console.log(helloMessage);
 
@@ -31,7 +34,9 @@ console.log(helloMessage);
  * console.
  */
 let myName = "Tina";
-console.log(sayHello(myName));
+helloMessage = sayHello(myName);
+console.log(helloMessage);
+//or just simplify to console.log(sayHello(myName));
 
 
 
@@ -59,8 +64,9 @@ let random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(random) {
-    return random == 2;
+    return random === 2; //== works too but intelliJ prefers strict
 }
+console.log(random);
 console.log(isTwo(random));
 
 
@@ -76,13 +82,15 @@ console.log(isTwo(random));
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+
 let billTotal = prompt('What is the bill total?');
-let tipPercent = prompt('What percent would you like to tip (in decimal form)?');
+let tipPercent = prompt('What percent would you like to tip (in decimal form)?'); //could have also used ParseInt() or ParseFloat() at the prompt to convert the string to a number instead of doing it in the function math with Number()
 function calculateTip(tipPercent, billTotal) {
     return (Number(tipPercent) * Number(billTotal));
 }
-console.log();
 alert ("You should tip $" + calculateTip(tipPercent, billTotal));
+
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -107,6 +115,6 @@ alert ("You should tip $" + calculateTip(tipPercent, billTotal));
 let originalPrice = prompt('What is the original price?');
 let discountPercent = prompt('What is the discount percent (in decimal form)?');
 function applyDiscount(originalPrice, discountPercent) {
-    return (originalPrice - (Number(originalPrice) * Number(discountPercent)));
+    return (Number(originalPrice) - (Number(originalPrice) * Number(discountPercent)));
 }
 alert ("Your discounted price is $" + applyDiscount(originalPrice, discountPercent));
