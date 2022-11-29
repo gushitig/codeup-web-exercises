@@ -22,19 +22,20 @@
  * console.logging the function's return value
  */
 /*
+
 let color = prompt('Enter a color.');
 function analyzeColor(color) {
-    if (color == "red") {
+    if (color.toLowerCase() == "red") {
         return `Strawberries are ${color}!`;
-    } else if (color == "orange") {
+    } else if (color.toLowerCase() == "orange") {
         return `Traffic cones are ${color}!`;
-    } else if (color == "yellow") {
+    } else if (color.toLowerCase() == "yellow") {
         return `Bananas are ${color}!`;
-    } else if (color == "green") {
+    } else if (color.toLowerCase() == "green") {
         return `Grass is ${color}!`;
-    } else if (color == "blue") {
+    } else if (color.toLowerCase() == "blue") {
         return `The sky is ${color}!`;
-    } else if (color == "purple") {
+    } else if (color.toLowerCase() == "purple") {
         return `Indigo flowers are ${color}!`;
     } else {
         return `I don't know anything about ${color}!`;
@@ -43,6 +44,7 @@ function analyzeColor(color) {
 alert (analyzeColor(color));
 console.log(analyzeColor(color));
 */
+
 
 
 
@@ -64,34 +66,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-
+/*
 let color = prompt('Enter a color.');
 function analyzeColor(color) {
-    switch(color) {
+    let response;
+    switch(color.toLowerCase()) {
         case "red":
-            return(`Strawberries are ${color}!`);
+            response = `Strawberries are ${color}!`;
             break;
         case "orange":
-            return(`Traffic cones are ${color}!`);
+            response = `Traffic cones are ${color}!`;
             break;
         case "yellow":
-            return(`Bananas are ${color}!`);
+            response = `Bananas are ${color}!`;
             break;
         case "green":
-            return(`Grass is ${color}!`);
+            response = `Grass is ${color}!`;
             break;
         case "blue":
-            return(`The sky is ${color}!`);
+            response = `The sky is ${color}!`;
             break;
         case "purple":
-            return(`Indigo flowers are ${color}!`);
+            response = `Indigo flowers are ${color}!`;
             break;
         default:
-            return(`I don't know anything about ${color}!`);
+            response = `I don't know anything about ${color}!`;
             break;
     }
+    return response;
 }
-alert (analyzeColor(color));
+alert (analyzeColor(color));*/
 
 /**
  * TODO:
@@ -99,6 +103,8 @@ alert (analyzeColor(color));
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+//done above
 
 /* ########################################################################## */
 
@@ -122,6 +128,29 @@ alert (analyzeColor(color));
  * return value.
  */
 
+
+let discountedPrice;
+function calculateTotal(luckyNumber, totalAmount){
+    if (luckyNumber === 0) {
+        discountedPrice = totalAmount;
+    } else if (luckyNumber === 1) {
+        discountedPrice =  totalAmount - (.1 * totalAmount);
+    } else if (luckyNumber === 2) {
+        discountedPrice = totalAmount - (.25 * totalAmount);
+    } else if (luckyNumber === 3) {
+        discountedPrice = totalAmount - (.35 * totalAmount);
+    } else if (luckyNumber === 4) {
+        discountedPrice = totalAmount - (.5 * totalAmount);
+    } else if (luckyNumber === 5) {
+        discountedPrice = 0;
+    }
+    return (discountedPrice);
+
+}
+console.log(calculateTotal(3, 50));
+
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -131,7 +160,14 @@ alert (analyzeColor(color));
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+/*
+let luckyNumber = Math.floor(Math.random() * 6);
+let totalAmount = parseFloat(prompt ('What is the total bill?'));
+alert (`Your lucky number was ${luckyNumber}`);
+alert (`Your price before discount was $${totalAmount}.`);
+alert (`Your price after discount is $${(calculateTotal(luckyNumber, totalAmount))}.`);
+
+*/
 
 /**
  * TODO:
@@ -151,3 +187,41 @@ alert (analyzeColor(color));
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+let yesOrNo = confirm("Would you like to enter a number?");
+
+function evenOdd (userNumber){
+    if (userNumber % 2 === 0) {
+        alert(`Your number is even!`);
+    } else {
+        alert(`Your number is odd!`);
+    }
+}
+
+function plus100 (userNumber){
+    return (userNumber + 100);
+}
+
+function posNeg (userNumber){
+    if (userNumber > 0) {
+        alert(`Your number is positive!`);
+    } else if (userNumber < 0) {
+        alert(`Your number is negative!`);
+    } else {
+        alert(`Your number is zero!`);
+    }
+}
+
+if (yesOrNo === true) {
+    let userNumber = parseFloat(prompt('Enter a number.'));
+    if (isNaN(userNumber)) {
+        alert(`Your entry is not a number!`);
+    }else {
+        evenOdd(userNumber);
+
+        alert(`Your number ${userNumber} plus 100 is ${plus100(userNumber)}!`);
+
+        posNeg(userNumber);
+    }
+} else {
+    alert("Bye");
+}

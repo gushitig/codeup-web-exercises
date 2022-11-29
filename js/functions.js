@@ -84,7 +84,7 @@ console.log(isTwo(random));
  */
 
 let billTotal = prompt('What is the bill total?');
-let tipPercent = prompt('What percent would you like to tip (in decimal form)?'); //could have also used ParseInt() or ParseFloat() at the prompt to convert the string to a number instead of doing it in the function math with Number()
+let tipPercent = prompt('What percent would you like to tip (in decimal form)?'); //could have also used parseInt() or parseFloat() at the prompt to convert the string to a number instead of doing it in the function math with Number()
 function calculateTip(tipPercent, billTotal) {
     return (Number(tipPercent) * Number(billTotal));
 }
