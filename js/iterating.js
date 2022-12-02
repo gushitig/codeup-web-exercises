@@ -68,6 +68,12 @@
     }
     names.forEach(printFirst);
 
+/* instructor version
+const myArray = [1, 2, 3, 4, 5];
+function first(anArray) {
+    return anArray[1];
+    }
+ */
 
     console.log("---------");
     console.log("Second element");
@@ -89,5 +95,12 @@
         }
     }
     names.forEach(printLast);
+
+    /* instructor version
+    const myArray = [1, 2, 3, 4, 5];
+    function first(anArray) {
+        return anArray[anArray.length - 1];
+    }
+ */
 
 })();
