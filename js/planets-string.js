@@ -26,37 +26,9 @@
      * string, and <li> tags around each planet.
      */
 
-    // function htmlString {
-    //     let htmlString = "";
-    //     for (let i = 0; i < planetsArray.length; i++){
-    //         if (i === 0) {
-    //             console.log(`<ul><li> ${planet}`);
-    //         } else if (i === (planetsArray.length -1)){
-    //             console.log(`${planet} </li></ul> `);
-    //         } else if (i > 0 || index < (planetsArray.length -1)){
-    //             console.log(planetsArray.join("</li> <li>"));
-    //         }
-    //         result
-    //     }
-    // }
-
-    // planetsArray.forEach(function (planet, index) {
-    //     if (index === 0) {
-    //         console.log(`<ul><li> ${planet} </li>`);
-    //     } else if (index === (planetsArray.length -1)) {
-    //         console.log(`<li>${planet} </li></ul> `);
-    //     } else if (index > 0 || index < (planetsArray.length -1)){
-    //       console.log(planetsArray.join("</li> <li>"));
-    //     }
-    // });
-
-
-
-
-
-
-
-
-
+    planetsString = planetsArray.join("</li><li>");
+    planetsString = "<ul><li>" + planetsString + "</li></ul>";
+    console.log(planetsString);
+    document.write(planetsString);
 
 })();
