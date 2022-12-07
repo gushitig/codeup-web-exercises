@@ -91,5 +91,6 @@ for (const developer of developers) {
     list += `<li> ${developer} </li>`;
 };
 list += '</ul>';
+//same as list = `<ul>${list}</ul>`; if we lost line 85
 
 console.log(list);
