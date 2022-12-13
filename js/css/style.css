@@ -1,0 +1,61 @@
+
+body {
+    background-color: #808080;
+    font-family: Optima, sans-serif;
+    background-image: url("../src/grey.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: aliceblue;
+}
+
+h1 { text-align: center; }
+
+h2 {
+    color: cadetblue;
+    text-decoration: underline;
+}
+.fancy-header {
+    color: mediumseagreen;
+    text-decoration: underline;
+}
+
+ul {
+list-style-type: square;
+}
+
+table, th, td {
+    border: 2px solid mediumpurple;
+    border-collapse: collapse;
+    table-layout: fixed
+
+}
+
+td, th {
+    padding: 0.5rem;
+}
+
+th {
+    font-size: 24px;
+}
+
+tbody td {
+    text-align: center;
+}
+
+
+a:link {
+    color:lightpink;
+}
+
+a:visited {
+    color:lightskyblue;
+}
+
+a:hover {
+    color:lightcoral;
+}
+
+a:active {
+    color:lightgreen;
+}
