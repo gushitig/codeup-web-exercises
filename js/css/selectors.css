@@ -25,6 +25,7 @@ em {
 
 /*  selector for all "anchor" elements
     that are a direct child of an element with class="article" */
-a>.article {
+/*start on the outside first, so class thennn element */
+.article>a {
     float:right;
 }
