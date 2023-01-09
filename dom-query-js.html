@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM: Query and Modify</title>
+
 </head>
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="titleBtn">Change title</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -15,7 +17,9 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="readableBtn">Make more readable</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="blueHeaderBtn">Make this blue</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -25,6 +29,8 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<button id="paragraphBtn">Change this text</button>
+
 
 <script>
     (function() {
@@ -35,35 +41,59 @@
         console.log(mainHeader);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+
+
+        //DOM EVENTS PART 1
+        let listener = function (event) {
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
+        document.getElementById('titleBtn').addEventListener('click', listener);
+
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.getElementById
         ("sub-header");
         console.log(subHeader);
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
+        //DOM EVENTS PART 2
+        let listener2 = function (event) {
+            subHeader.style.color = "blue";
+        }
+        document.getElementById('blueHeaderBtn').addEventListener('click', listener2);
 
         // TODO: Uncomment the next line and get all list items
         let listItems = document.querySelectorAll("li");
         console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
-        for (let i = 0; i < listItems.length; i++) {
-            if (i % 2 === 0)
-            listItems[i].style.color = "grey";
+        //DOM EVENTS PART 3
+        let listener3 = function (event) {
+            for (let i = 0; i < listItems.length; i++) {
+                if (i % 2 === 0)
+                    listItems[i].style.color = "grey";
+                if (listItems[i].getAttribute("data-dbid") === "1") {
+                    listItems[i].style.color = "blue";
+                }
+            }
         }
+        document.getElementById('readableBtn').addEventListener('click', listener3);
+
+
         // TODO: Set text color of li with dbid = 1 to blue
-        if (listItems[i].getAttribute("data-dbid") === "1") {
-            listItems[i].style.color = "blue";
-        }
+
+
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        let subParagraphs = document.getElementsByClassName("sub-paragraph")
+        let subParagraphs = document.getElementsByClassName("sub-paragraph");
         console.log(subParagraphs[0].innerText);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished!";
+        //DOM EVENTS PART 4
+        let listener4 = function (event) {
+            subParagraphs[0].innerText = "Mission Accomplished!";
+        }
+        document.getElementById('paragraphBtn').addEventListener('click', listener4);
+
 
     })();
 </script>
