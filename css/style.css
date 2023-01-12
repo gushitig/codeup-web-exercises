@@ -2,7 +2,7 @@
 body {
     background-color: #808080;
     font-family: Optima, sans-serif;
-    background-image: url("../src/grey.jpeg");
+    background-image: url("../js/src/grey.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
