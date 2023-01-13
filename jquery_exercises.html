@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Selectors Exercises</title>
+
+  <style>
+    .my-box {
+      border: 1px solid black;
+      margin: 10px;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1 id="my-h1" class="heading">Cat Ladies Unite!</h1>
+
+<hr>
+
+<h2 id="catsHeading" class="heading">Cats in this Household</h2>
+<div id="box1" class="my-box">Nova</div>
+<div id="box2" class="my-box">Neptune</div>
+<div id="box3" class="my-box">Pickles</div>
+<div id="box4" class="my-box">Macy</div>
+<div id="box5" class="codeup">Percy</div>
+
+<h2 id="rulesHeading" class="heading">Rules of the House</h2>
+<p id="p1" class="my-p">If you don't want fur on you, stay off the furniture.</p>
+<p id="p2" class="codeup">The cats live here, you're just a visitor.</p>
+<p id="p3" class="my-p">You will be sniffed, licked, and possibly sat on.</p>
+
+<h2 id="requirementsHeading" class="codeup">Cat Lady Requirements:</h2>
+<ul id="my-ul">
+  <li>Must have one or more spoiled rotten cats.</li>
+  <li>Must give each cat multiple nicknames.</li>
+  <li>Must also feed strays.</li>
+  <li>Must possess cat decor of some type.</li>
+  <li>Must be known for your love of cats.</li>
+
+</ul>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+
+  //Id selectors #3
+  alert($('#p2').html());
+  //Id selectors #4
+  alert($('#p3').html());
+  //Id selectors #5 it uses the first one
+
+  //Class Selectors #3
+  $(".codeup").css("border", "1px solid red");
+  //Class Selectors #5 no, it is a class selector not an id selector
+
+  //Element Selectors #2
+  $("li").css("font-size", "20px");
+  //Element Selectors #3
+  $("p").css("background-color", "cyan");
+  $("h1").css("background-color", "cyan");
+  $("li").css("background-color", "cyan");
+  //Element Selectors #4
+  alert($('h1').html());
+
+  //multiple Selectors #3
+  $("p, h1, li").css("background-color", "cyan");
+</script>
+
+
+</body>
+</html>

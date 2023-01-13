@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Intro</title>
+
+  <style>
+    .my-box {
+      border: 1px solid black;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="my-h1">Hello world!</h1>
+
+<div id="box1" class="my-box">Box 1</div>
+<div id="box2" class="my-box">Box 2</div>
+<div id="box3" class="my-box">Box 3</div>
+
+<p id="p1" class="my-p">Paragraph 1</p>
+<p id="p2" class="my-p">Paragraph 2</p>
+<p id="p3" class="my-p">Paragraph 3</p>
+
+<ul id="my-ul">
+  <li>Hi</li>
+  <li>Bye</li>
+</ul>
+<!--check here for jquery releases https://releases.jquery.com/ -->
+<!--what is difference between uncompressed -readable, minified-no space for human reading, slim-some functions removed, and slim-minified?-->
+<!--under CDN, link at bottom, 3.x-->
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+<script>
+  "use strict";
+
+  (function() {
+
+    // explain jquery and its place in market today- possibly fading out but still widely used in a legacy sense
+
+    // introduce jquery object
+    console.log(jQuery.fn.jquery);
+
+    // introduce the jquery object shortcut
+    console.log($.fn.jquery);
+
+    // explain .ready()
+   /* console.log("pre dom loaded jquery");
+  $(document).ready(function (){
+    console.log("dom loaded according to jquery");
+  });
+    console.log("post dom loaded jquery");*/
+
+    // show $(document).ready()
+
+
+    // show vanilla js "equivalent"
+    /*console.log("pre dom loaded (vanilla js");
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("vanilla js dom loaded")
+    });
+    console.log("post dom loaded (vanilla js)");*/
+
+    // can also use $(function() {...}) as a .ready()
+    //another short cut w less keystrokes
+    $(function (){
+
+    });
+
+
+    // STOP FOR FIRST EXERCISE !!!
+
+
+    // select an element by id and log
+    const myH1 = $("#my-h1");
+    console.log(myH1);
+    //vanilla equivalent (much longer)
+    //const myH1 = document.querySelector("#my-h1");
+
+    // select elements by class and log
+    const myBoxes = $(".my-box"); //dont save to variables bc it saves them as dead snapshots, just use the selectors in jquery so you have live selectors
+    console.log(myBoxes);
+
+    // select elements by tag and log
+    console.log($("p"));
+
+    // select child lis in a ul and log
+    console.log($("#my-ul > li"));
+
+
+    // difference between what querySelector returns and what jquery returns
+    console.log(document.querySelector("h1"));
+    // need ref for explanation of a jquery object
+    // https://howtodoinjava.com/jquery/javascript-dom-objects-vs-jquery-objects/
+
+    // try to output innerText and innerHTML with jquery object
+    //$("#my-h1")[0].innerText = "Blah blah";
+    $("#my-h1").html("<i>Blah blah blah</i>");
+    $("#my-h1").text("<i>Blah blah blah</i>"); //rmeber the difference between these two
+    console.log($("#my-h1").html());
+
+    // how to read and write innerHTML for jquery objects
+
+    // explain the method chaining above
+
+    // change the background color of all elements with a my-box class
+    $(".my-box").css("background-color", "red");
+    $("#my-h1").css("background-color", "red");
+
+    // do the vanilla js equivalent :)
+    /*const myBoxes2 = document.querySelectorAll(".my-box");
+    myBoxes2.forEach(function(myBox){
+      myBox.style.backgroundColor = "red";
+    });*/
+
+    // change font size of all p els to 28px
+    $("p").css("font-size", "28px");
+
+    // change font family of p els, my-box classes, and my-h1 id to sans-serif
+    $("p, .my-box, #my-h1").css("font-family", "sans-serif");
+
+    // add a 5px dotted red border to all els
+    $("*").css("border", "5px dotted cornflowerblue");
+
+
+  })();
+
+</script>
+</body>
+</html>
