@@ -23,7 +23,7 @@
 <div id="box2" class="my-box">Neptune</div>
 <div id="box3" class="my-box">Pickles</div>
 <div id="box4" class="my-box">Macy</div>
-<div id="box5" class="codeup">Percy</div>
+<div id="box5" class="my-box">Percy</div>
 
 <h2 id="rulesHeading" class="heading">Rules of the House</h2>
 <p id="p1" class="my-p">If you don't want fur on you, stay off the furniture.</p>
@@ -46,7 +46,7 @@
 <script>
   "use strict";
 
-  //Id selectors #3
+  /*//Id selectors #3
   alert($('#p2').html());
   //Id selectors #4
   alert($('#p3').html());
@@ -66,7 +66,26 @@
   alert($('h1').html());
 
   //multiple Selectors #3
-  $("p, h1, li").css("background-color", "cyan");
+  $("p, h1, li").css("background-color", "cyan");*/
+
+  //Mouse events exercises
+  $("#my-h1").click(function(event) {
+    $(this).css('background-color', 'cornflowerblue');
+  });
+
+  $("p").dblclick(function() {
+    $(this).css("font-size", "18px");
+  });
+
+  $("li").hover(hoverOn, hoverOff);
+
+  function hoverOn() {
+    $(this).css('color', 'red');
+  }
+
+  function hoverOff() {
+    $(this).css('color', 'black');
+  }
 </script>
 
 
