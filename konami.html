@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+
+  let sequence = [];
+
+  $(document).keyup(function(event){
+    //console.log(event.key);
+    sequence.push(event.key);
+    //console.log(sequence);
+    //console.log(sequence.toString());
+    if (sequence.toString() === "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a") {
+      alert("You have added 9 lives!");
+      $('body').css({
+        "background-image": "url('js/src/zcq3m-kittens-all-looking-at-camera.jpeg')",
+      "background-repeat":"no-repeat",
+      "background-attachment":"fixed",
+      "background-position":"center"
+    });
+
+
+
+
+    }
+  });
+
+  //'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'
+</script>
+</body>
+</html>
