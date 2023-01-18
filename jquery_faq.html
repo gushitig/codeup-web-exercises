@@ -8,6 +8,10 @@
 
   <style>
 
+    h1 {
+      font-weight: bold;
+    }
+
     dt {
       font-size: 1.5em;
     }
@@ -16,8 +20,8 @@
       background-color: black;
       background-image: url(../codeup-web-exercises/js/src/blackCatWbg.webp);
       background-position: center;
+      background-attachment: fixed;
       background-repeat: no-repeat;
-      background-size: cover;
       color: whitesmoke;
     }
 
@@ -28,6 +32,10 @@
     .highlight {
       background-color: #1FBFEC;
       color: black;
+    }
+
+    .bold {
+      font-weight: bold;
     }
 
   </style>
@@ -71,6 +79,60 @@
   <dd class = "invi" >A group of cats is called a clowder, and a group of kittens is called a kindle.</dd>
 </dl>
 
+  <hr>
+
+  <h3>Macy</h3>
+  <ul>
+    <li class="macy-li">Age: 10</li>
+    <li class="macy-li">Favorite toy: not a fan</li>
+    <li class="macy-li">Likes: bacon</li>
+    <li class="macy-li">Dislikes: when someone opens a can and it’s not for her</li>
+  </ul>
+
+  <h3>Pickles</h3>
+  <ul>
+    <li class="pickles-li">Age: 8</li>
+    <li class="pickles-li">Favorite toy: pink feather fishing pole</li>
+    <li class="pickles-li">Likes: sitting on anyone’s lap</li>
+    <li class="pickles-li">Dislikes: her brother</li>
+  </ul>
+
+  <h3>Percy</h3>
+  <ul>
+    <li class="percy-li">Age: 1</li>
+    <li class="percy-li">Favorite toy: pink octopus</li>
+    <li class="percy-li">Likes: following people to the bathroom</li>
+    <li class="percy-li">Dislikes: that his sisters don’t let him play with them</li>
+  </ul>
+
+  <button id="highlight-btn" class="btn btn-info"  type="button">Highlight</button>
+
+  <hr>
+
+  <div class="d-flex">
+
+    <div class="d-flex flex-column justify-content-center align-items-center" >
+  <img src="../codeup-web-exercises/js/src/macy.jpeg" alt="Left" width="80%" height=auto id="left">
+
+    <button id="left-btn" class="btn btn-info m-2"  type="button">Swap Left</button>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center" >
+  <img src="../codeup-web-exercises/js/src/pickles.jpeg" alt="Center" width="80%" height=auto id="center">
+
+    <button id="center-btn" class="btn btn-info m-2"  type="button">Swap Center</button>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-center" >
+  <img src="../codeup-web-exercises/js/src/percy.jpeg" alt="Right" width="80%" height=auto id="right">
+
+    <button id="right-btn" class="btn btn-info m-2"  type="button">Swap Right</button>
+      </div>
+
+  </div>
+
+
+
 </div>
 
 
@@ -78,24 +140,83 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-  // get in a habit of putting dom manipulating stuff inside a ready function
   $(document).ready(function() {
 
     $("#hide-class-btn").click(function() {
-
       $(".invi").toggleClass("invisible");
     })
 
-
-    /*$("dt").click(function(event) {
-      $(this).css('background-color', 'cyan');
-    });*/
     $("dt").click(function(){
       $(this).addClass("highlight");
     });
 
-  });
+    $("#highlight-btn").click(function() {
+      $("ul").children().last().addClass("highlight");
+      /*$(".pickles-li").last().addClass("highlight");
+      $(".percy-li").last().addClass("highlight");*/
+    });
 
+    $("h3").click(function(){
+      $(this).next().children().addClass("bold");
+    });
+
+    $("li").click(function(){
+      $(this).parent().children().first().css("color", "blue");
+    });
+
+
+
+
+
+    $(function() {
+      let leftSrc = $('#left-btn').prev().attr('src');
+      let centerSrc = $('#center-btn').prev().attr('src');
+      let rightSrc = $('#right-btn').prev().attr('src');
+
+      $('#left-btn').click(function() {
+        leftSrc = $('#left-btn').prev().attr('src');
+        centerSrc = $('#center-btn').prev().attr('src');
+        $(this).prev().attr('src', centerSrc);
+        $('#center-btn').prev().attr('src', leftSrc);
+      });
+
+
+
+
+      $('#center-btn').click(function() {
+        let random = Math.floor(Math.random() * 2);
+        if (random === 0) {
+          leftSrc = $('#left-btn').prev().attr('src');
+          centerSrc = $('#center-btn').prev().attr('src');
+          $('#left-btn').prev().attr('src', centerSrc);
+          $('#center-btn').prev().attr('src', leftSrc);
+
+        }
+        if (random === 1) {
+          centerSrc = $('#center-btn').prev().attr('src');
+          rightSrc = $('#right-btn').prev().attr('src');
+          $('#right-btn').prev().attr('src', centerSrc);
+          $('#center-btn').prev().attr('src', rightSrc);
+
+        }
+
+      });
+
+
+      $('#right-btn').click(function (){
+        centerSrc = $('#center-btn').prev().attr('src');
+        rightSrc = $('#right-btn').prev().attr('src');
+        $(this).prev().attr('src', centerSrc);
+        $('#center-btn').prev().attr('src', rightSrc);
+      })
+    });
+
+
+
+
+
+
+  });
 
 </script>
 
