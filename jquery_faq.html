@@ -151,9 +151,8 @@
     });
 
     $("#highlight-btn").click(function() {
-      $("ul").children().last().addClass("highlight");
-      /*$(".pickles-li").last().addClass("highlight");
-      $(".percy-li").last().addClass("highlight");*/
+      $("ul li:last-child").addClass("highlight");
+
     });
 
     $("h3").click(function(){
@@ -167,7 +166,7 @@
 
 
 
-
+//bonus - got a ton of help from Stephen thanks duuuude
     $(function() {
       let leftSrc = $('#left-btn').prev().attr('src');
       let centerSrc = $('#center-btn').prev().attr('src');
@@ -179,9 +178,6 @@
         $(this).prev().attr('src', centerSrc);
         $('#center-btn').prev().attr('src', leftSrc);
       });
-
-
-
 
       $('#center-btn').click(function() {
         let random = Math.floor(Math.random() * 2);
@@ -210,6 +206,56 @@
         $('#center-btn').prev().attr('src', rightSrc);
       })
     });
+
+
+
+/*
+
+    //class example created a function to do the swapping so that the end code is much cleaner. only thing going to change is what two images we are passing to the function
+
+    function swapImages(imgDiv1, imgDiv2) {
+      let img1 = imgDiv1.css("background-image");
+      let img2 = imgDiv1.css("background-image");
+
+      let img3= img1;
+      img1 = img2;
+      img2 = img3;
+
+      imgDiv1.css("background-image", img1);
+      imgDiv2.css("background-image", img2);
+
+    }
+//try to keep variables as local as possible, dont just put everything global bc its easy
+    $(#button-1).click(function() {
+      let imgDiv1 = $(this).prev();
+      let imgDiv2 = $(this).parent().next().children().first();
+      swapImages(imgDiv1, imgDiv2);
+    });
+
+    $(#button-2).click(function() {
+      let imgDiv1 = undefined;
+      let imgDiv2 = undefined;
+      if (Math.random() < 0.5) {
+        imgDiv1 = $(this).prev();
+        imgDiv2 = $(this).parent().next().children().first();
+
+      } else {
+        imgDiv1 = $(this).prev();
+        imgDiv2 = $(this).parent().next().children().first();
+        swapImages(imgDiv1, imgDiv2);
+      }
+      swapImages(imgDiv1, imgDiv2);
+    });
+
+    $(#button-3).click(function() {
+      let imgDiv1 = $(this).prev();
+      let imgDiv2 = $(this).parent().prev().children().first();
+      swapImages(imgDiv1, imgDiv2);
+    });
+//if your client decides they want the buttons on top, it would break the code!!
+
+
+*/
 
 
 
