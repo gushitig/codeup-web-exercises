@@ -11,7 +11,10 @@
 
 <div class="container-fluid">
   <div id="my-div">
-    Data will show here... eventually
+    <p id="p1">p1</p>
+    <p id="p2">p2</p>
+    <p id="p3">p3</p>
+
   </div>
 </div>
 
@@ -22,24 +25,73 @@
 
 
   // introduce .ajax()
+  //asynchronous javascript and xml
   // go over request/response architecture
   // WHITEBOARD!
   // mention different types of requests
   // mention different types of data
-  // show https://java.codeup.com as an example request and show the response as htnk
+  // show https://java.codeup.com as an example request and show the response as html
+  //curl https://java.codeup.com in terminal returns html
+  //curl https://www.google.com
+  //curl simplest possible way to make a request over the internet but incredibly crude
+  //get requests arent browser specific that just what theyre built to do
 
-  // make a simple AJAX request to http://localhost
+/*  // make a simple AJAX request to http://localhost
   // and show the echo server
-
+  //using jquery to make some requests to ajax
+  $.ajax("http://localhost/?param1=val1");
+  //? is a query parameter
+  $.ajax("http://localhost/?sort=desc&state=TX");
+  //2 parameters
 
   // do a POST
-
+  $.ajax("http://localhost/", {
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json",
+    data: JSON.stringify ({
+      name: "Bob Smith",
+      age: 42
+    })
+  });
+  //ajax is by default trying to send this over as form data(old school stuff), but we want it to be sent as json, so we need to specify content type and stringify
+  //where post is adding something:
   // do a PUT
+  //put and patch are meant to change data
+  //put is a whole new object to replace whats there
+  //patch is to change one thing or one subset of things
+  //nitpicky thing tho
+  //add a parameter so you can identify the record where you made that change
+  //commonly accepted format right now http://localhost/v1/people/555 this would be a persons file at id number 555
+  $.ajax("http://localhost/?id-555", {
+    type: "PUT",
+    dataType: "json",
+    contentType: "application/json",
+    data: JSON.stringify ({
+      name: "Bob Smith",
+      age: 52
+    })
+  });
+
 
   // do a DELETE
-
+    $.ajax("http://localhost/v1/people/555", {
+      type: "DELETE",
+      dataType: "json"
+      });*/
+/*
   // do some method chaining
   // use .done() to see the data from the GET request
+  $.ajax("http://localhost").done(function(data){
+    //iterate over the data array and print out each thing
+    //console.log(data);
+    /!*for (const row of data) {
+      console.log(row);
+    }*!/
+    $("#my-div").text(data[0].currentPet.age);
+    //returns 5, just not on this comp bc he has his server set up locally
+
+  }).fail(function(){}); //will give  a response back if it fails*/
 
   // use .fail() and make a 404 happen
   // be sure to print the status
@@ -57,6 +109,28 @@
   // introduce JSON MAYBE DO THIS LAST BEFORE ANIME QUOTE DEMO
   // show JS object and talk about how it may not be usable outside of JS
   // show JSON equivalent
+  $.ajax("https://pokeapi.co/api/v2/pokemon/charmander").done(function(data) {
+      console.log(data);
+      $("#p1").text(data.name);
+      $("#p2").text(data.height);
+      $("#p3").text(data.weight);
+    })
+          .fail(function(statusCode) {
+
+          });
+
+  //cors is a security mechanism that tries to prevent scripts in browser from pulling in malicious content
+
+
+  /*$.post("/data/inventory.json", {
+    quantity: 7,
+    title: "Weed eater",
+    categories: ['tool', 'gas', 'outdoor'],
+    price: 89
+  }).done(function(data){
+    console.log(data);
+  });*/
+
 
 </script>
 </body>
