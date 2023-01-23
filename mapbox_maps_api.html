@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapbox Exercise</title>
+  <!-- Mapbox CSS -->
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- Custom CSS -->
+  <style>
+    #map {
+      /* the width and height may be set to any size */
+      width: 100%;
+      height: 700px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Mapbox Exercise</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+<!--include geocoding library-->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!--include keys -->
+<script src="js/keys.js"></script>
+
+
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+
+<!-- Custom JS -->
+<script>
+  "use strict";
+  mapboxgl.accessToken = MAPBOX_API_KEY;
+  let map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 10,
+    center: [-98.4916, 29.4252]
+  });
+
+  let restaurants = [
+    {
+      name: "Thai Bistro and Sushi San Antonio, tx",
+      type: "Thai",
+      description: "Homemade style Thai food in a lowkey setting offering sushi and boba tea.",
+      phone: "(210) 558-6707"
+    },
+    {
+      name: "India Palace",
+      type: "Indian",
+      description: "Informal Northern Indian eatery with classic vegetarian & meat dishes buffet style.",
+      phone: "(210) 692-5262"
+    },
+    {
+      name: "Sichuan House San Antonio, tx",
+      type: "Chinese",
+      description: "Humble eatery featuring Sichuan tapas, hot pots & mains such as pork belly & Kung Pao shrimp.",
+      phone: "(210) 509-9999"
+    }
+  ]
+
+  function pinThatRestaurant(restaurant) {
+    geocode(restaurant.name, MAPBOX_API_KEY).then(function(result) {
+      console.log(result);
+      const marker = new mapboxgl.Marker();
+      marker.setLngLat(result);
+      marker.addTo(map);
+
+      let popup = new mapboxgl.Popup()
+              .setHTML(`<p>${restaurant.name}</p>
+                    <p>${restaurant.type}</p>
+                    <p>${restaurant.description}</p>
+                    <p>${restaurant.phone}</p>
+                    `)
+      marker.setPopup(popup);
+
+    }).catch(function(error) {
+      console.log("Boom");
+    });
+  }
+
+
+  restaurants.forEach(function(restaurant)
+  {
+      console.log(restaurant.name);
+      pinThatRestaurant(restaurant);
+  })
+
+  //pinThatRestaurant("India Palace");
+
+</script>
+</body>
+</html>
