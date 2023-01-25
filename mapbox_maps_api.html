@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Mapbox Exercise</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Mapbox CSS -->
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Custom CSS -->
@@ -21,6 +23,21 @@
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
+<!--<select class="form-select" style="width:fit-content;">
+  <option selected>Change the zoom of the map</option>
+  <option id="1">Close</option>
+  <option id="2">Average</option>
+  <option id="3">Far</option>
+</select>-->
+<div class="input-group">
+  <select class="form-select" id="zoom">
+    <option selected>Change the zoom of the map</option>
+    <option value="1">Close</option>
+    <option value="2">Average</option>
+    <option value="3">Far</option>
+  </select>
+</div>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
@@ -30,6 +47,8 @@
 <!--include keys -->
 <script src="js/keys.js"></script>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
@@ -47,7 +66,7 @@
 
   let restaurants = [
     {
-      name: "Thai Bistro and Sushi San Antonio, tx",
+      name: "Thai Bistro and Sushi 5999 De Zavala Rd, San Antonio, TX 78249",
       type: "Thai",
       description: "Homemade style Thai food in a lowkey setting offering sushi and boba tea.",
       phone: "(210) 558-6707"
@@ -82,18 +101,16 @@
       marker.setPopup(popup);
 
     }).catch(function(error) {
-      console.log("Boom");
+      console.log("error");
     });
   }
 
 
   restaurants.forEach(function(restaurant)
   {
-      console.log(restaurant.name);
       pinThatRestaurant(restaurant);
   })
 
-  //pinThatRestaurant("India Palace");
 
 </script>
 </body>
